@@ -29,7 +29,7 @@ class Bacteriahistorygraph extends StatelessWidget {
               color: Colors.black,
               borderRadius: BorderRadius.circular(15),
               boxShadow: <BoxShadow>[
-                BoxShadow(color: Colors.black.withOpacity(0.2), blurRadius: 12),
+                BoxShadow(color: Colors.black.withValues(alpha: 0.2), blurRadius: 12),
               ],
             ),
             child: _buildMainPaint(constraints),

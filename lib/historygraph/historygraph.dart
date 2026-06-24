@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 class HistoryGraph extends StatelessWidget {
   const HistoryGraph({
+    super.key,
     required this.historyElements,
     required this.currentTick,
     required this.currentBacteriaAmount,

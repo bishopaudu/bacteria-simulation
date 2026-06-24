@@ -1,33 +1,32 @@
 import 'package:bacteria_simulation/bacteriacollectionpainter.dart';
+import 'package:bacteria_simulation/models/antibiotic_particle.dart';
 import 'package:bacteria_simulation/models/bacteria.dart';
 import 'package:flutter/material.dart';
 
 class Bacterialcollection extends StatelessWidget {
   final List<Bacteria> bacteriaList;
-  const Bacterialcollection({super.key,required this.bacteriaList});
+  final List<Offset> foodList;
+  final List<AntibioticParticle> particles;
+  final Bacteria? inspectedBacteria;
+
+  const Bacterialcollection({
+    super.key,
+    required this.bacteriaList,
+    required this.foodList,
+    required this.particles,
+    this.inspectedBacteria,
+  });
 
   @override
   Widget build(BuildContext context) {
-   // final List<Widget> widgetList = bacteriaList.map((bacteria) =>buildWidgetFromBacteria(bacteria)).toList();
     return CustomPaint(
-      painter: Bacteriacollectionpainter(bacteriaList: bacteriaList),
-      
+      painter: Bacteriacollectionpainter(
+        bacteriaList: bacteriaList,
+        foodList: foodList,
+        particles: particles,
+        inspectedBacteria: inspectedBacteria,
+      ),
+      child: const SizedBox.expand(),
     );
-  }
-
-  Positioned buildWidgetFromBacteria(Bacteria bacteria) {
-    return Positioned(
-      left:bacteria.x,
-      top: bacteria.y,
-      child: Container(
-       // width: 10,
-        //height: 10,
-        decoration: BoxDecoration(
-        color: Colors.black38,
-        borderRadius: BorderRadius.circular(5),
-        ),
-        width: Bacteria.width,
-      height: Bacteria.height,
-      ));
   }
 }
